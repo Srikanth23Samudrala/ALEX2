@@ -1,0 +1,98 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Game Dashboard - ALEX Project
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css", rel="stylesheet")
+  body
+    // Navigation menu
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href="/") ALEX
+      ul.nav.nav-tabs.ml-auto
+        li.nav-item
+          a.nav-link(href="/game-dashboard")
+            i.fa.fa-home.mr-2
+            Game Home
+        li.nav-itemgame-board
+          a.nav-link(href="/game-dashboard/game-scores")
+            i.fa.fa-trophy.mr-2
+            Game Scores
+        li.nav-item
+          a.nav-link(href="/game-dashboard/game-logs")
+            i.fa.fa-file-alt.mr-2
+            Game Logs
+        li.nav-item
+          a.nav-link(href="/game-dashboard/notifications")
+            i.fa.fa-bell.mr-2
+            Game Notifications 
+        li.nav-item
+          a.nav-link(href="/game-dashboard/profile")
+            i.fa.fa-user.mr-2
+            Game Profile
+
+    // Game Cards
+    section#game-cards.container
+      .row
+        each game in games
+          .col-md-4.y-3.x-4
+            .card
+              img.card-img-top(src=`./images/${game.image}`, alt=game.name)
+              .card-body
+                h5.card-title #{game.name}
+                p.card-text #{game.description}
+                //- button.btn.btn-primary(type="button", data-toggle="modal", data-target="#gameModal") Play
+                p.text-center.mt-3
+                  a(href="/game-dashboard/game-quiz") Play
+      // Main Game Modal
+      #gameModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true")
+        .modal-dialog
+          .modal-content
+            .modal-header
+              h5.modal-title#gameModalLabel Game Details
+              button.close(type="button", data-dismiss="modal", aria-label="Close")
+                span(aria-hidden="true") ×
+            .modal-body
+              // Game Name
+              //- h6 Game: #{games.name}
+              // Game Level
+              label(for="gameLevel") Game Level:
+              select#gameLevel.form-control
+                option(value="easy") Easy
+                option(value="medium") Medium
+                option(value="hard") Hard
+              // Player Mode
+              label(for="playerMode") Player Mode:
+              select#playerMode.form-control
+                option(value="single") Single
+                option(value="multiplayer") Multiplayer
+              // Game Category
+              label(for="gameCategory") Game Category:
+              select#gameCategory.form-control
+                option(value="action") Action
+                option(value="puzzle") Puzzle
+                option(value="adventure") Adventure
+              // Start Game Button
+              button.btn.btn-primary(type="button", data-toggle="modal", data-target="#playerModal") Start Game
+
+            // Player Selection Modal
+            #playerModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="playerModalLabel" aria-hidden="true")
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    h5.modal-title#playerModalLabel Select Players
+                    button.close(type="button", data-dismiss="modal", aria-label="Close")
+                      span(aria-hidden="true") ×
+                  .modal-body
+                    // Player Search
+                    input#playerSearch.form-control(type="text", placeholder="Search for players...")
+                    // List of Dummy Players
+                    ul#playerList.list-group
+                      each player in dummyPlayers
+                        li.list-group-item.d-flex.justify-content-between.align-items-center
+                          #{player.name}
+                          button.btn.btn-success(type="button") Add
+                    // Continue to Game Button
+                    button.btn.btn-primary(type="button") Continue to Game
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js")

@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Registration - ALEX Project
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet")
+  body
+    // Banner/hero section
+    section#hero.jumbotron.text-center
+      img(src="hero-image.jpg", alt="ALEX Project", class="img-fluid")
+      h1.display-4 Welcome to ALEX Project
+      p.lead An online multiplayer CS Jeopardy-style game
+
+    // Registration Form
+    section#registration-form.row
+      div.col-md-6.mx-auto
+        h2 Registration
+        form(action="/Auth/register-new-player", method="POST")
+          .form-group
+            label(for="email") Email:
+            input.form-control(type="email", id="email", name="email", required)
+          .form-group
+            label(for="password") Password:
+            input.form-control(type="password", id="password", name="password", required)
+          .form-group
+          button.btn.btn-primary(type="submit") Register
+          p.text-center.mt-3
+            a(href="/") Login
+            |  | 
+            a(href="registration-with-face") Register with Face
+
+    // Navigation menu
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href="index.html") ALEX Project
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item: a.nav-link(href="index.html") Home
+          li.nav-item: a.nav-link(href="game-lobby.html") Game Lobby
+          li.nav-item: a.nav-link(href="help.html") Help
+          li.nav-item: a.nav-link(href="support.html") Support
+
+    // Brief Description
+    section#brief-description.container
+      h2 About ALEX Project
+      p The ALEX Project is an online multiplayer CS Jeopardy-style game that...
+
+    // Footer
+    footer.container
+      p.small &copy; 2023 ALEX Project
+      ul.list-unstyled.list-inline
+        li.list-inline-item: a(href="privacy-policy.html") Privacy Policy
+        li.list-inline-item: a(href="terms-of-service.html") Terms of Service
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js")

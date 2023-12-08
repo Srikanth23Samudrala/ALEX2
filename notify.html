@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - ALEX Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .notification {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .expand-button {
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">ALEX</a>
+        <ul class="nav nav-tabs ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#ingame-notifications">
+                    <i class="fa fa-bell mr-2"></i>
+                    In-Game Notifications
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#email-notifications">
+                    <i class="fa fa-envelope mr-2"></i>
+                    Email Notifications
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- In-Game Notifications -->
+    <section id="ingame-notifications" class="container">
+        <h2>In-Game Notifications</h2>
+        <!-- Dummy in-game notifications -->
+        <div class="notification">
+            <p>Notification 1: This is a short in-game notification.</p>
+        </div>
+        <div class="notification">
+            <p>Notification 2: This is a longer in-game notification that needs to be expanded to view more content.</p>
+            <span class="expand-button">View More</span>
+        </div>
+        <div class="notification">
+            <p>Notification 3: Another short in-game notification.</p>
+        </div>
+        <div class="notification">
+            <p>Notification 4: Yet another in-game notification with more text that should be expandable.</p>
+            <span class="expand-button">View More</span>
+        </div>
+        <div class="notification">
+            <p>Notification 5: Short in-game notification.</p>
+        </div>
+    </section>
+
+    <!-- Email Notifications -->
+    <section id="email-notifications" class="container">
+        <h2>Email Notifications</h2>
+        <!-- Dummy email notifications -->
+        <div class="notification">
+            <p>Email Notification 1: This is a short email notification.</p>
+        </div>
+        <div class="notification">
+            <p>Email Notification 2: This is a longer email notification that needs to be expanded to view more content.</p>
+            <span class="expand-button">View More</span>
+        </div>
+        <div class="notification">
+            <p>Email Notification 3: Another short email notification.</p>
+        </div>
+        <div class="notification">
+            <p>Email Notification 4: Yet another email notification with more text that should be expandable.</p>
+            <span class="expand-button">View More</span>
+        </div>
+        <div class="notification">
+            <p>Email Notification 5: Short email notification.</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Add Question - ALEX Project
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css", rel="stylesheet")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js", defer)
+    style.
+      /* Add your custom styles here */
+
+  body
+    // Navigation or header section (if needed)
+    include ./includes/navbar.pug
+
+    // Form to add a question
+    section.container.mt-4
+      h2 Add Question
+      form(action="/admin-dashboard/add-question", method="POST" enctype="multipart/form-data")
+        .mb-3
+          label(for="questionText") Question Text:
+          input#questionText.form-control(type="text", name="questionText")
+        .mb-3
+          label(for="answers") Answers (comma-separated):
+          input#answers.form-control(type="text", name="answers")
+        .mb-3
+          label(for="correctAnswer") Correct Answer:
+          input#correctAnswer.form-control(type="text", name="correctAnswer")
+        .mb-3
+          label(for="difficulty") Difficulty Level:
+          select#difficulty.form-select(name="difficulty")
+            option(value="easy") Easy
+            option(value="medium") Medium
+            option(value="hard") Hard
+        .mb-3
+          label(for="csvFile") Upload CSV File:
+          input#csvFile.form-control(type="file", name="csvFile", accept=".csv")
+        button.btn.btn-primary(type="submit") Add Question
